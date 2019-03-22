@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+      #app {
+        padding: 20px;
+      }
+      #events {
+        width: 700px;
+      }
+      .past {
+        color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Your Schedule</h1>
+      <ul id="events" class="list-group">
+        <li v-for="event in events" class="list-group-item" v-bind:class="{ past: event.date < Date.now() }">
+          <h3>{{ event.name }}</h3>
+          <div>{{ event.date }}</div>
+        </li>
+      </ul>
+      <div class="alert alert-light" role="alert">
+        This fitness/diet plan is custom-tailored for you, courtesy of <a href="https://www.grove.co/" class="alert-link">Grove Collaborative</a>.
+      </div>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
